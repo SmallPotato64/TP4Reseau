@@ -34,16 +34,19 @@ void ATP4ReseauPlayerState::SetSelectedHero(TSubclassOf<ACharacter> NewHero)
 
 void ATP4ReseauPlayerState::OnRep_SelectedHero()
 {
+	UE_LOG(LogTemp, Warning, TEXT("PlayerState: Broadcasting OnSelectedHeroChanged"));
 	OnSelectedHeroChanged.Broadcast(this);
 }
 
 void ATP4ReseauPlayerState::CopyProperties(APlayerState* PlayerState)
 {
+	UE_LOG(LogTemp, Warning, TEXT("PlayerState: Copying PlayerState"));
 	Super::CopyProperties(PlayerState);
 
 	ATP4ReseauPlayerState* NewPS = Cast<ATP4ReseauPlayerState>(PlayerState);
 	if (NewPS)
 	{
 		NewPS->SelectedHero = SelectedHero;
+		UE_LOG(LogTemp, Warning, TEXT("PlayerState: Affected SelectedHero in the New PlayerState"));
 	}
 }

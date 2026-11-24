@@ -11,6 +11,8 @@
 
 void ATP4ReseauPlayerController::BeginPlay()
 {
+	UE_LOG(LogTemp, Warning, TEXT("ATP4ReseauPlayerController: Begin play"));
+
 	Super::BeginPlay();
 
 	// only spawn touch controls on local player controllers
@@ -35,6 +37,7 @@ void ATP4ReseauPlayerController::BeginPlay()
 
 void ATP4ReseauPlayerController::SetupInputComponent()
 {
+	UE_LOG(LogTemp, Warning, TEXT("ATP4ReseauPlayerController: SetupInputComponent"));
 	Super::SetupInputComponent();
 
 	// only add IMCs for local player controllers

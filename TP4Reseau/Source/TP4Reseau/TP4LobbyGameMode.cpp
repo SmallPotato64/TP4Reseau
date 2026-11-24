@@ -14,19 +14,6 @@ ATP4LobbyGameMode::ATP4LobbyGameMode()
 	PlayerControllerClass = ATP4LobbyPlayerController::StaticClass();
 	PlayerStateClass = ATP4ReseauPlayerState::StaticClass();
 	DefaultPawnClass = nullptr;
-
-	// Chargement des Blueprints enfants des héros
-	static ConstructorHelpers::FClassFinder<ACharacter> MannyFinder(TEXT("/Game/ThirdPerson/Blueprints/BP_HeroManny"));
-	if (MannyFinder.Succeeded() && MannyFinder.Class)
-	{
-		AllowedHeroes.Add(MannyFinder.Class);
-	}
-
-	static ConstructorHelpers::FClassFinder<ACharacter> QuinnFinder(TEXT("/Game/ThirdPerson/Blueprints/BP_HeroQuinn"));
-	if (QuinnFinder.Succeeded() && QuinnFinder.Class)
-	{
-		AllowedHeroes.Add(QuinnFinder.Class);
-	}
 }
 
 void ATP4LobbyGameMode::PostLogin(APlayerController* NewPlayer)
@@ -91,6 +78,7 @@ void ATP4LobbyGameMode::CheckAllPlayersReady()
 
 	bTravelTriggered = true;
 
+	UE_LOG(LogTemp, Warning, TEXT("LobbyGameMode: Launching Server Travel."));
 	// Déclenche le Seamless Travel vers la carte Game
 	GetWorld()->ServerTravel(TEXT("/Game/ThirdPerson/Levels/Game?listen"));
 }

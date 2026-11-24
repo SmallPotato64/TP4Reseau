@@ -16,6 +16,8 @@ class TP4RESEAU_API ATP4GameplayGameMode : public AGameModeBase
 	
 public:
 	ATP4GameplayGameMode();
+	
+	
 
 	virtual UClass* GetDefaultPawnClassForController_Implementation(AController* InController) override;
 };

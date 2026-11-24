@@ -7,11 +7,6 @@
 
 ATP4MenuPlayerController::ATP4MenuPlayerController()
 {
-	static ConstructorHelpers::FClassFinder<UUserWidget> MenuWidgetFinder(TEXT("/Game/UI/WBP_MainMenu"));
-	if (MenuWidgetFinder.Succeeded())
-	{
-		MainMenuWidgetClass = MenuWidgetFinder.Class;
-	}
 }
 
 void ATP4MenuPlayerController::BeginPlay()

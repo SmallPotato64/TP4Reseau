@@ -8,30 +8,10 @@
 #include "Components/TextBlock.h"
 #include "GameFramework/GameStateBase.h"
 #include "GameFramework/PlayerState.h"
-#include "UObject/ConstructorHelpers.h"
 
 void UTP4LobbyWidget::NativeConstruct()
 {
 	Super::NativeConstruct();
-
-	// Chargement des classes de héros si non déjà définies
-	if (!MannyHeroClass)
-	{
-		static ConstructorHelpers::FClassFinder<ACharacter> MannyFinder(TEXT("/Game/ThirdPerson/Blueprints/BP_HeroManny"));
-		if (MannyFinder.Succeeded())
-		{
-			MannyHeroClass = MannyFinder.Class;
-		}
-	}
-
-	if (!QuinnHeroClass)
-	{
-		static ConstructorHelpers::FClassFinder<ACharacter> QuinnFinder(TEXT("/Game/ThirdPerson/Blueprints/BP_HeroQuinn"));
-		if (QuinnFinder.Succeeded())
-		{
-			QuinnHeroClass = QuinnFinder.Class;
-		}
-	}
 
 	if (MannyButton)
 	{
@@ -180,5 +160,6 @@ FString UTP4LobbyWidget::FormatHeroName(TSubclassOf<ACharacter> HeroClass) const
 
 	FString ClassName = HeroClass->GetName();
 	ClassName.RemoveFromStart(TEXT("BP_Hero"));
+	ClassName.RemoveFromEnd(TEXT("_C"));
 	return ClassName.IsEmpty() ? TEXT("Héros sélectionné") : ClassName;
 }

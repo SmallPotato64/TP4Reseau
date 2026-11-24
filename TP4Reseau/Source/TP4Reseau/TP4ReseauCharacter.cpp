@@ -14,6 +14,7 @@
 
 ATP4ReseauCharacter::ATP4ReseauCharacter()
 {
+	UE_LOG(LogTemp, Warning, TEXT("ATP4ReseauCharacter: Constructor"));
 	// Set size for collision capsule
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
 		
@@ -52,6 +53,7 @@ ATP4ReseauCharacter::ATP4ReseauCharacter()
 
 void ATP4ReseauCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
+	UE_LOG(LogTemp, Warning, TEXT("ATP4ReseauCharacter: SetupPlayerInputComponent"));
 	// Set up action bindings
 	if (UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(PlayerInputComponent)) {
 		

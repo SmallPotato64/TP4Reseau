@@ -5,6 +5,7 @@
 
 void ATP4GameplayPlayerController::BeginPlay()
 {
+	UE_LOG(LogTemp, Warning, TEXT("ATP4GameplayPlayerController: Begin play"));
 	Super::BeginPlay();
 
 	if (!IsLocalPlayerController())

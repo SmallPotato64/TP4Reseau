@@ -9,11 +9,6 @@
 
 ATP4LobbyPlayerController::ATP4LobbyPlayerController()
 {
-	static ConstructorHelpers::FClassFinder<UUserWidget> LobbyWidgetFinder(TEXT("/Game/UI/WBP_Lobby"));
-	if (LobbyWidgetFinder.Succeeded())
-	{
-		LobbyWidgetClass = LobbyWidgetFinder.Class;
-	}
 }
 
 void ATP4LobbyPlayerController::BeginPlay()
